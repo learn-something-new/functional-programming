@@ -5,7 +5,7 @@
 ## Table of Contents
 
 + [Partial Evaluation (Coming soon)](#)
-+ [Memoization (Coming soon)](#)
++ [Memoization](/memoization)
 + [Currying (Coming soon)](#)
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
