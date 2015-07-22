@@ -9,7 +9,14 @@ the same parameters the stored result is returned.
 ## Examples
 
 The following is a very simple example in Python, though a non-functional language it very simply explains
-how memoization can be achieved.
+how memoization can be achieved. 
+
+What is happening below is a basic function `buildURI` that accepts the 4 basic parts of a URI and returns the complete string
+is being passed in the declaration of a new object `buildURI`, of the class `Memoize`. This object can now be called using
+the exact same parameters as the original function, however during each call we check if this has been called previously 
+(by storing the result in an object identified by the args array) and if it has we simply returned the previously computed
+result. If the array of arguments do not match anything that has been previosly called, we evaluate the function as expected and
+then store the results for future use.
 
         # Memoize allows us to store the args and value of each function call
         # and on any future calls matching the same args, we can return the value
