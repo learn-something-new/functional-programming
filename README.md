@@ -10,6 +10,7 @@
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
++ [Closures (Coming soon)](#)
 
 ## Partial Evaluation
 
@@ -22,6 +23,8 @@
 ## Lamba Expressions
 
 ## Reactive Programming
+
+## Closures
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
