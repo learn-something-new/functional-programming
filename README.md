@@ -13,7 +13,11 @@
 
 ## Partial Evaluation
 
-## Memoization
+## [Memoization](/memoization)
+
+Memoization is the act of storing function calls in memory and returning the already computed results. This means that
+when a function is first called the function call, and the results are stored, when that function is called again with 
+the same parameters the stored result is returned. 
 
 ## Currying
 
