@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-+ [Partial Evaluation (Coming soon)](#)
++ [Partial Evaluation](/partial-eval)
 + [Memoization (Coming soon)](#)
 + [Currying (Coming soon)](#)
 + [Recursion (Coming soon)](#)
