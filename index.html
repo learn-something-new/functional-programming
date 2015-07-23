@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Functional Programming</title>
+    
+    <meta name="description" content="A collection of functional programming examples." />
+    <meta name="author" content="Jeffrey Hann" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        <q>So your curious about <b>functional programming</b>? Well have a seat and listen close...</q>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500">
+        <q>In this presentation we discuss functional programming: What it looks like, how it works, and what it's good for.</q>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <q>We will show examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.</q>
+    </div>
+
+    <div class="slide step" data-x="2000" data-y="-1500">
+        <q><b>Topics:</b></q>
+        <ul>
+            <li><a href="#">Partial Evaluation</a></li>
+            <li><a href="#">Memoization</a></li>
+            <li><a href="#">Currying </a></li>
+            <li><a href="#">Recursion</a></li>
+            <li><a href="#">Lambda Expressions</a></li>
+            <li><a href="#">Reactive Programming</a></li>
+            <li><a href="#">Object-oriented and Functional programming</a></li>
+            <li><a href="#">Closures</a></li>
+        </ul>
+    </div>
+
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
