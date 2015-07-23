@@ -2,6 +2,8 @@
 
 # Functional Programming
 
+In this suite of documents we discuss functional programming: What it looks like, how it works, and what it's good for.  We try to do this from a practical-but-fun perspective, showing examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.
+
 ## Table of Contents
 
 + [Partial Evaluation (Coming soon)](#)
@@ -10,6 +12,7 @@
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
++ [Object-oriented and Functional programming](object-oriented/README.md)
 
 ## Partial Evaluation
 
