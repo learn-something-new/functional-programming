@@ -2,13 +2,15 @@
 
 # Functional Programming
 
+[![logo](https://raw.githubusercontent.com/learn-something-new/learn-something-new.github.io/master/logo.png?v=2)](#)
+
 In this suite of documents we discuss functional programming: What it looks like, how it works, and what it's good for.  We try to do this from a practical-but-fun perspective, showing examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.
 
 ## Table of Contents
 
 + [Partial Evaluation](/partial-eval)
++ [Memoization](/memoization)
 + [Object-oriented and Functional programming](/object-oriented)
-+ [Memoization (Coming soon)](#)
 + [Currying (Coming soon)](#)
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
@@ -32,9 +34,13 @@ A basic human language sentence is described by linguists as being made up of a 
 
 Similarly, programs are generally comprised of structures built out of nouns (variables, constants, fields, properties, structs, records, objects, serial forms, files, etc) and verbs (create, execute, operate, implement, extend, generate, compute, invoke, etc).  Also in keeping with human languages, verbs are nounified (creator, executor, operator, etc) and, occasionally, nouns are verbified (to serialize).
 
-## Memoization
+## [Memoization](/memoization)
 
-(Coming soon)
+Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.  Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.
+
+Memoization implements a space/time tradeoff: storing the result of each invocation takes up memory (`[number of distinct calls] x [size of output type]`), but eliminates the cost of repeated calls almost entirely (and increasing the cost of non-repeated calls slightly).  The traditional memoizer monitors all arguments and stores all results, but small variations can allow for heuristics like most-recently-used to 'split the difference'.
+
+Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
 
 ## Currying
 
