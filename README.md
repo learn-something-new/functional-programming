@@ -2,6 +2,8 @@
 
 # Functional Programming
 
+[![logo](https://raw.githubusercontent.com/learn-something-new/learn-something-new.github.io/master/logo.png?v=2)](#)
+
 In this suite of documents we discuss functional programming: What it looks like, how it works, and what it's good for.  We try to do this from a practical-but-fun perspective, showing examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.
 
 ## Table of Contents
