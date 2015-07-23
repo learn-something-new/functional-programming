@@ -21,18 +21,16 @@ A well-designed object-oriented system can be scalable and beautiful.  A large n
 
 Sample code:
 ```java
-class QuickSorter implements Sorter {
-  public <T extends Comparable<T>> void sort(List<T> list) {
+class QuickSorter<T> implements Sorter<T> {
+  public void sort(List<T> list) {
     doSort(list, 0, list.size());
   }
   
-  private <T extends Comparable<T>> void doSort(List<T> list, int low, int length) {
+  private void doSort(List<T> list, int low, int length) {
     int pivotPoint = findPivotPoint(list, low, length);
     doSort(list, 0, pivotPoint);
     doSort(list, pivotPoint, length);
   }
-  
-  private int findPivotPoint(List<T> list, int low, int length) { /* omitted */ }
 }
 ```
 
@@ -41,3 +39,13 @@ class QuickSorter implements Sorter {
 Functional programming, on the other hand, favours verbs.  It encourages programmers to focus on what the program does, and less on how it is done: a *declarative* approach, rather than the *imperative* one that is common among object-oriented applications.  Programmers define strictly limited functions which transform their inputs into outputs.
 
 ...TBC
+
+Sample code:
+```haskell
+def quicksort list = join(
+  each(
+    split(findPivot(list)), 
+    part -> quicksort(part)
+  )
+);
+```
