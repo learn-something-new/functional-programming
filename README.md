@@ -15,9 +15,21 @@
 
 ## [Memoization](/memoization)
 
-Memoization is the act of storing function calls in memory and returning the already computed results. This means that
-when a function is first called the function call, and the results are stored, when that function is called again with 
-the same parameters the stored result is returned. 
+Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.  Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.
+
+Memoization implements a space/time tradeoff: storing the result of each invocation takes up memory (`[number of distinct calls] x [size of output type]`), but eliminates the cost of repeated calls almost entirely (and increasing the cost of non-repeated calls slightly).  The traditional memoizer monitors all arguments and stores all results, but small variations can allow for heuristics like most-recently-used to 'split the difference'.
+
+Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
+
+Pseudocode:
+```
+    define memoize(f):
+        return a new function g such that:
+            g takes the same arguments as f;
+            g returns the same result as f;
+            if g[args] is not defined, let g[args] = f(args);
+            return g[args].
+```
 
 ## Currying
 
