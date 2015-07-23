@@ -2,61 +2,55 @@
 
 # [Memoization](/memoization)
 
-Memoization is the act of storing function calls in memory and returning the already computed results. This means that
-when a function is first called the function call, and the results are stored, when that function is called again with 
-the same parameters the stored result is returned. 
+Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.  Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.
+
+Memoization implements a space/time tradeoff: storing the result of each invocation takes up memory (`[number of distinct calls] x [size of output type]`), but eliminates the cost of repeated calls almost entirely (and increasing the cost of non-repeated calls slightly).  The traditional memoizer monitors all arguments and stores all results, but small variations can allow for heuristics like most-recently-used to 'split the difference'.
+
+Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
+
+Pseudocode:
+```
+    define memoize(f):
+        return a new function g such that:
+            g takes the same arguments as f;
+            g returns the same result as f;
+            if g[args] is not defined, let g[args] = f(args);
+            return g[args].
+```
 
 ## Examples
 
-The following is a very simple example in Python, though a non-functional language it very simply explains
-how memoization can be achieved. 
+The following is a very simple example in Python. 
 
-What is happening below is a basic function `buildURI` that accepts the 4 basic parts of a URI and returns the complete string
-is being passed in the declaration of a new object `buildURI`, of the class `Memoize`. 
+```python
+    # Define a function memoize that takes a function, and returns a function
+    def memoize(f):
+        memo = {}
+        def delegate(*args):            # Delegate function:
+            if not args in memo:        #   If we don't have a stored value yet
+                memo[args] = f(*args)   #       Call f and store the value
+            return memo[args]           #   Return the stored value
+        return delegate                 # Return the delegate
 
-This object can now be called using the exact same parameters as the original function, however during each call we check if this 
-has been called previously (by storing the result in an object identified by the args array) and if it has we simply returned the 
-previously computed result. 
-
-If the array of arguments do not match anything that has been previously called, we evaluate the function as expected and
-then store the results for future use.
-
-    # Memoize allows us to store the args and value of each function call
-    # and on any future calls matching the same args, we can return the value
-    # without evaluating the function
-    class Memoize:
-        # __init__ initializes Memoize by storying the function and creating
-        # an empty object for the args and values
-        # in: self (Memozie), f (function)
-        def __init__(self, f):
-            self.f = f
-            self.memo = {}
-        # __call__ is evaluated on each call to the function stored in Memoize
-        # and checks if the args are in the memo object, if missing we evaluate the
-        # function and store the data for future uses
-        # in: self (Memozie), args (list of arguments)
-        # out: output of self.f
-        def __call__(self, *args):
-            if not args in self.memo:
-                self.memo[args] = self.f(*args)
-            return self.memo[args]
-
-    # buildURI creates a proper URI including protocol, host, port, and page
-    # in: protocol (string), host (string), port (integer), page (string)
-    # out: valid URI
+    # Define a marginally nontrivial function
     def buildURI(a, b, c, d):
         return a + "://" + b + ":" + `c` + "/" + d
 
-    buildURI = Memoize(buildURI)
+    # Rebind the function with its own memoized version
+    buildURI = memoize(buildURI)
 
-    print(buildURI("http", "localhost", 80, "index.html"))
-    print(buildURI("http", "localhost", 80, "index.html"))
+    print(buildURI("http", "localhost", 80, "index.html"))      # This calls the real buildURI()
+    print(buildURI("http", "localhost", 80, "index.html"))      # This does not
+
+    # Because Python does late binding, this will work even for memoizing intermediate
+    # values of recursive functions
+```
 
 > Source: [memo.py](memo.py)
 
 As mentioned, the above example is not very efficient, and since it is written in a non-functional language
 you are limited to how much of the concept you can leverage. Next is an example in Haskell that makes use of 
-State Maps and Monads to optimizes the memoization. 
+State Maps and Monads to optimize the memoization. 
 
 Since Haskell is a functional language, not Object Orientated, we use a class like our above example.
 Instead we a function that manages our State Map, and a type of wrapper function around `times` called `timesM` that 
