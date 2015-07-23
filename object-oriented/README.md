@@ -44,6 +44,7 @@ Functional programming, on the other hand, favours verbs.  It encourages program
 * *First-class and higher-order functions*: Functions that take or return another function
 * *Pure functions*: Functions that have no side-effects and the results can be removed or never used without effecting the application
 * *Recursion*: Utilize recursion instead of iteration or looping
+* *Late binding*: Methods being called are not looked up or evaluated until runtime
 
 Sample code:
 ```haskell
