@@ -9,6 +9,7 @@ Memoization implements a space/time tradeoff: storing the result of each invocat
 Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
 
 Pseudocode:
+
 ```
     define memoize(f):
         return a new function g such that:
@@ -73,6 +74,7 @@ Output:
 Now as I mentioned, we are passing in `timesM`, as well as two integers. Using monads and a maybe statement we can first check if 
 this exists in our map, and if not we work through evaluating it and storing it in our map.
 
+```haskell
     -- times is a simple function that accepts two numbers and multiplies them
     -- in: Integer, Integer
     -- out: Integer
@@ -122,6 +124,7 @@ this exists in our map, and if not we work through evaluating it and storing it 
 
     main =
         print $ val 2 2
+```
 
 > Source: [memo.hs](memo.hs)
 
