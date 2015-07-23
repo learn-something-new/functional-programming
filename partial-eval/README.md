@@ -9,6 +9,13 @@ This can be repeatedly done until you have provided all the arguments, and unlik
 non-functional languages, a true functional language will automatically create this function by partially evaluating the function you 
 are calling and determining what parameters are provided.
 
+
+## True Partial Evaluation
+
+It is important to note that while using a functional language such as haskell, partial evaluation adds a great performance benefit by
+re-compiling the function being partial evaluated reducing the number of steps the required in runtime to execute the function. However, many
+(most) languages do not actually do this and do a fake form of partial evaluation. Even many functional languages do not properly do this.
+
 ## Examples
 
 Lets see how this might work in Haskell:
@@ -35,18 +42,22 @@ average x y z = (x + y + z) `div` 3
 
 -- first passes a single integer to average and stores the 
 -- partial evaluation that is returned
+-- first y z = (y + z) `div` 3
+first :: Integer -> Integer -> Integer
 first = average 1
 
 -- second works the same way first does, passing a single integer
 -- and storing the partially evaluated result
+-- second z = z `div` 3
+second :: Integer -> Integer
 second = first 2
 
 -- third passes the final integer and stores the computed value of average
 -- which in this case is the average of all three integers being provided
 third = second 3
     
- main = print third
- ```
+main = print third
+```
 
 > source: [average-partial.hs](average-partial.hs)
     
