@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-+ [Partial Evaluation (Coming soon)](#)
++ [Partial Evaluation](/partial-eval)
 + [Memoization (Coming soon)](#)
 + [Currying (Coming soon)](#)
 + [Recursion (Coming soon)](#)
@@ -12,7 +12,9 @@
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
 
-## Partial Evaluation
+## [Partial Evaluation](/partial-eval)
+
+Partial evaluation is, in very basic terms, a way to call a function that takes mutiple arguments while providing a fewer arguments than required. The result will be a new function that now accepts the number of remaining arguments. This can be repeatedly done until you have provided all the arguments, and unlike just creating a wrapper as you might in non-functional languages, a true functional language will automatically create this function by partially evaluating the function you are calling and determining what parameters are provided.
 
 ## Memoization
 
