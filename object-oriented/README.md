@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/obihann-learning/functional-programming.svg)](https://github.com/obihann-learning/functional-programming/blob/master/LICENSE)
+
 # Object-oriented and Functional Programming
 
 Often, programmers consider OO and functional programming to be competing metaphors, in competition with one another.  I believe that this isn't the case; I think they complement each other; in fact, I believe they can't live without each other.
@@ -38,7 +40,11 @@ class QuickSorter<T> implements Sorter<T> {
 
 Functional programming, on the other hand, favours verbs.  It encourages programmers to focus on what the program does, and less on how it is done: a *declarative* approach, rather than the *imperative* one that is common among object-oriented applications.  Programmers define strictly limited functions which transform their inputs into outputs.
 
-...TBC
+* *No side-effects*
+* *Pure functions*
+* *Recursion*
+* *First-class and higher-order functions*
+* *Late binding*
 
 Sample code:
 ```haskell
@@ -49,3 +55,8 @@ def quicksort list = join(
   )
 );
 ```
+
+##License
+This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
+
+Copyright [Jeffrey Hann](http://jeffreyhann.ca/) 2015

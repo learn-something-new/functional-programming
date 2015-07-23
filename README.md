@@ -12,7 +12,7 @@ In this suite of documents we discuss functional programming: What it looks like
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
-+ [Object-oriented and Functional programming](object-oriented/README.md)
++ [Object-oriented and Functional programming](/object-oriented)
 
 ## Partial Evaluation
 
@@ -25,6 +25,14 @@ In this suite of documents we discuss functional programming: What it looks like
 ## Lamba Expressions
 
 ## Reactive Programming
+
+## [Object-oriented and Functional programming](/object-oriented)
+
+Often, programmers consider OO and functional programming to be competing metaphors, in competition with one another.  I believe that this isn't the case; I think they complement each other; in fact, I believe they can't live without each other.
+
+A basic human language sentence is described by linguists as being made up of a 'noun phrase' and a 'verb phrase'.  A *noun phrase* is one or more words that describe an object, such as a person, place, thing or idea; a *verb phrase* is one or more words that describe an action.  Of course the line between these can be flexible: nouns can often be 'verbified' (to bag, to box, to objectify... to verbify), and verbs are frequently nounified (runner, actor, dancer).
+
+Similarly, programs are generally comprised of structures built out of nouns (variables, constants, fields, properties, structs, records, objects, serial forms, files, etc) and verbs (create, execute, operate, implement, extend, generate, compute, invoke, etc).  Also in keeping with human languages, verbs are nounified (creator, executor, operator, etc) and, occasionally, nouns are verbified (to serialize).
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
