@@ -11,12 +11,12 @@ Memoization is easy to implement for code written in functional style; in many l
 Pseudocode:
 
 ```
-    define memoize(f):
-        return a new function g such that:
-            g takes the same arguments as f;
-            g returns the same result as f;
-            if g[args] is not defined, let g[args] = f(args);
-            return g[args].
+define memoize(f):
+    return a new function g such that:
+        g takes the same arguments as f;
+        g returns the same result as f;
+        if g[args] is not defined, let g[args] = f(args);
+        return g[args].
 ```
 
 ## Examples
@@ -24,27 +24,27 @@ Pseudocode:
 The following is a very simple example in Python. 
 
 ```python
-    # Define a function memoize that takes a function, and returns a function
-    def memoize(f):
-        memo = {}
-        def delegate(*args):            # Delegate function:
-            if not args in memo:        #   If we don't have a stored value yet
-                memo[args] = f(*args)   #       Call f and store the value
-            return memo[args]           #   Return the stored value
-        return delegate                 # Return the delegate
+# Define a function memoize that takes a function, and returns a function
+def memoize(f):
+    memo = {}
+    def delegate(*args):            # Delegate function:
+        if not args in memo:        #   If we don't have a stored value yet
+            memo[args] = f(*args)   #       Call f and store the value
+        return memo[args]           #   Return the stored value
+    return delegate                 # Return the delegate
 
-    # Define a marginally nontrivial function
-    def buildURI(a, b, c, d):
-        return a + "://" + b + ":" + `c` + "/" + d
+# Define a marginally nontrivial function
+def buildURI(a, b, c, d):
+    return a + "://" + b + ":" + `c` + "/" + d
 
-    # Rebind the function with its own memoized version
-    buildURI = memoize(buildURI)
+# Rebind the function with its own memoized version
+buildURI = memoize(buildURI)
 
-    print(buildURI("http", "localhost", 80, "index.html"))      # This calls the real buildURI()
-    print(buildURI("http", "localhost", 80, "index.html"))      # This does not
+print(buildURI("http", "localhost", 80, "index.html"))      # This calls the real buildURI()
+print(buildURI("http", "localhost", 80, "index.html"))      # This does not
 
-    # Because Python does late binding, this will work even for memoizing intermediate
-    # values of recursive functions
+# Because Python does late binding, this will work even for memoizing intermediate
+# values of recursive functions
 ```
 
 > Source: [memo.py](memo.py)
@@ -75,55 +75,55 @@ Now as I mentioned, we are passing in `timesM`, as well as two integers. Using m
 this exists in our map, and if not we work through evaluating it and storing it in our map.
 
 ```haskell
-    -- times is a simple function that accepts two numbers and multiplies them
-    -- in: Integer, Integer
-    -- out: Integer
-    times :: Integer -> Integer -> Integer
-    times a  b = a * b
+-- times is a simple function that accepts two numbers and multiplies them
+-- in: Integer, Integer
+-- out: Integer
+times :: Integer -> Integer -> Integer
+times a  b = a * b
 
-    -- timesM accepts a function and a Integer, if the function matches one that
-    -- has already been computed (such as `timesM 2`) then we return the already defined
-    -- value, if not we compute a new value
-    -- in: Integer, Integer
-    -- out: Integer
-    timesM :: Monad m => (Integer -> Integer -> m Integer) -> Integer -> Integer -> m Integer
-    timesM f' 2 2 = return 4
-    timesM f' 3 3 = return 6
-    timesM f' x y = do
-        return $ times x y
+-- timesM accepts a function and a Integer, if the function matches one that
+-- has already been computed (such as `timesM 2`) then we return the already defined
+-- value, if not we compute a new value
+-- in: Integer, Integer
+-- out: Integer
+timesM :: Monad m => (Integer -> Integer -> m Integer) -> Integer -> Integer -> m Integer
+timesM f' 2 2 = return 4
+timesM f' 3 3 = return 6
+timesM f' x y = do
+    return $ times x y
 
-    type StateMap a b = State (Map a b) b
+type StateMap a b = State (Map a b) b
 
-    -- memoizeM returns a function that accepts a single input and returns
-    -- the value either by returning timesM or Map.lookup
-    -- out: Integer -> Integer -> Integer
-    memoizeM :: (Show a, Show b, Ord a) 
-        => ((a -> b -> StateMap a b) -> (a -> b -> StateMap a b)) -> (a -> b -> b)
-    memoizeM t x y = evalState (f x y) Map.empty where
-        g x y = do
-            -- assuming `f = timesM 2` and `x = 2` then y evaluates 
-            -- timesM (t) and passes it `timesM 2` (f)
-            -- if this is already a computed value it is returned immediately
-            -- if `timesM 2` has not been computed then timesM is passed 2 (x)
-            y <- t f x y
-            -- m retrieves the monad from the state
-            m <- get
-            -- insert x y and m into the a map and then store this into the state
-            put $ Map.insert x y m
-            -- store the state in newM
-            newM <- get
-            -- return y
-            return y
-        f x y = get >>= \m -> maybe (g x y) return (Map.lookup x m)
+-- memoizeM returns a function that accepts a single input and returns
+-- the value either by returning timesM or Map.lookup
+-- out: Integer -> Integer -> Integer
+memoizeM :: (Show a, Show b, Ord a) 
+    => ((a -> b -> StateMap a b) -> (a -> b -> StateMap a b)) -> (a -> b -> b)
+memoizeM t x y = evalState (f x y) Map.empty where
+    g x y = do
+        -- assuming `f = timesM 2` and `x = 2` then y evaluates 
+        -- timesM (t) and passes it `timesM 2` (f)
+        -- if this is already a computed value it is returned immediately
+        -- if `timesM 2` has not been computed then timesM is passed 2 (x)
+        y <- t f x y
+        -- m retrieves the monad from the state
+        m <- get
+        -- insert x y and m into the a map and then store this into the state
+        put $ Map.insert x y m
+        -- store the state in newM
+        newM <- get
+        -- return y
+        return y
+    f x y = get >>= \m -> maybe (g x y) return (Map.lookup x m)
 
-    -- val is a partial evaluation of `memoizeM -> timesM -> x
-    -- in: Integer, Integer
-    -- out: Integer
-    val :: Integer -> Integer -> Integer
-    val x y = memoizeM timesM x y
+-- val is a partial evaluation of `memoizeM -> timesM -> x
+-- in: Integer, Integer
+-- out: Integer
+val :: Integer -> Integer -> Integer
+val x y = memoizeM timesM x y
 
-    main =
-        print $ val 2 2
+main =
+    print $ val 2 2
 ```
 
 > Source: [memo.hs](memo.hs)
