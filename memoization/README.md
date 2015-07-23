@@ -53,26 +53,9 @@ As mentioned, the above example is not very efficient, and since it is written i
 you are limited to how much of the concept you can leverage. Next is an example in Haskell that makes use of 
 State Maps and Monads to optimize the memoization. 
 
-Since Haskell is a functional language, not Object Orientated, we use a class like our above example.
+Since Haskell is a functional language, not Object Orientated, we don't use a class like our above example.
 Instead we a function that manages our State Map, and a type of wrapper function around `times` called `timesM` that 
 accepts a monad and by itself stores some pre-calculated results.
-
-The real bulk of this code lives in `memoizeM` which looks complicated, however broken down it is fairly straight forward. The 
-general idea is this function accepts a function(in this case `timesM`) and Show types, then returns a function that very similarly
-accepts two Show types and returns one.
-
-Here is a better breakdown:
-
-Input:
-
-    ((Show -> Show -> StateMap (Show Show)) -> (Show -> Show -> StateMap (Show Show)))
-
-Output: 
-
-    (Show -> Show -> Show)
-
-Now as I mentioned, we are passing in `timesM`, as well as two integers. Using monads and a maybe statement we can first check if 
-this exists in our map, and if not we work through evaluating it and storing it in our map.
 
 ```haskell
 -- times is a simple function that accepts two numbers and multiplies them
