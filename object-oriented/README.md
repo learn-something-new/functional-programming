@@ -40,11 +40,10 @@ class QuickSorter<T> implements Sorter<T> {
 
 Functional programming, on the other hand, favours verbs.  It encourages programmers to focus on what the program does, and less on how it is done: a *declarative* approach, rather than the *imperative* one that is common among object-oriented applications.  Programmers define strictly limited functions which transform their inputs into outputs.
 
-* *No side-effects*
-* *Pure functions*
-* *Recursion*
-* *First-class and higher-order functions*
-* *Late binding*
+* *No side-effects*: Within a function avoid modifying the value of variables, writing to disk, or directly calling other functions
+* *First-class and higher-order functions*: Functions that take or return another function
+* *Pure functions*: Functions that have no side-effects and the results can be removed or never used without effecting the application
+* *Recursion*: Utilize recursion instead of iteration or looping
 
 Sample code:
 ```haskell
