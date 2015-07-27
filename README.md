@@ -8,12 +8,12 @@ In this suite of documents we discuss functional programming: What it looks like
 
 ## Table of Contents
 
-+ ** [Object-oriented and Functional programming](/object-oriented) **
-+ ** [Partial Evaluation](/partial-eval) **
-+ ** [Memoization](/memoization) **
-+ ** [Recursion](/recursion )**
-+ ** [Currying (Coming soon)](#) **
-+ ** [Lambda Expressions](/lambda) **
++ **[Object-oriented and Functional programming](/object-oriented)**
++ **[Partial Evaluation](/partial-eval)**
++ **[Memoization](/memoization)**
++ **[Recursion](/recursion )**
++ [Currying (Coming soon)](#)
++ **[Lambda Expressions](/lambda)**
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
 
