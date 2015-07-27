@@ -1,6 +1,6 @@
 [![GitHub license](https://img.shields.io/github/license/obihann-learning/functional-programming.svg)](https://github.com/obihann-learning/functional-programming/blob/master/LICENSE)
 
-## Lamba Expressions
+# Lamba Expressions
 
 Lambda expressions, or anonymous functions, are not a concept unique to functional programming. However, functional programming uses lambda expressions in concepts.
 Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions. In functional programming these are used

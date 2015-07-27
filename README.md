@@ -8,12 +8,12 @@ In this suite of documents we discuss functional programming: What it looks like
 
 ## Table of Contents
 
-+ **[Object-oriented and Functional programming](/object-oriented)**
-+ **[Partial Evaluation](/partial-eval)**
-+ **[Memoization](/memoization)**
-+ **[Recursion](/recursion)**
-+ ** [Currying](/lambda) **
-+ [Lambda Expressions (Coming soon)](#)
++ ** [Object-oriented and Functional programming](/object-oriented) **
++ ** [Partial Evaluation](/partial-eval) **
++ ** [Memoization](/memoization) **
++ ** [Recursion](/recursion )**
++ ** [Currying (Coming soon)](#) **
++ ** [Lambda Expressions](/lambda) **
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
 
@@ -50,7 +50,7 @@ Memoization is easy to implement for code written in functional style; in many l
 
 See section [recursion](/recursion) for description.
 
-## Lamba Expressions
+## [Lambda Expressions](/lambda)
 
 Lambda expressions, or anonymous functions, are not a concept unique to functional programming. However, functional programming uses lambda expressions in concepts.
 Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions. In functional programming these are used
