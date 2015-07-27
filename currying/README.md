@@ -16,8 +16,6 @@ integer, and finall returns an integer, this is an example of currying and
 add :: Integer -> Integer -> Integer
 ```
 
-> source: [add.hs](add.hs)
-
 
 Currying is often confused with partial-evaluation, however the key difference is with currying you 
 are not infact creating a function accepts less than the required number of arguments, you are actually
