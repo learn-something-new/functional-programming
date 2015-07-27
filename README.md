@@ -15,7 +15,7 @@ In this suite of documents we discuss functional programming: What it looks like
 + [Currying (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
-+ [Closures (Coming soon)](#)
++ **[Closures](/closures)**
 
 ## [Object-oriented and Functional programming](/object-oriented)
 
@@ -58,9 +58,11 @@ See section [recursion](/recursion) for description.
 
 *(Coming soon)*
 
-## Closures
+## [Closures](/closures)
 
-*(Coming soon)*
+Closures are functions that scope exists within a variable. Any function defined within a closure has access to the scope and variables created
+in the parent function. Closures are a part of higher-order functions in languages such as Haskell, as well they are used in languages like JavaScript
+for callbacks, allowing the callback to access the variables and scope of the parent function.
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
