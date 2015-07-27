@@ -5,19 +5,22 @@ of functions that each take a single function.
 
 Sample Code:
 
-```
--- as you can see this function accepts two integers and returns one
--- this is not a curried function, nor is it a high order function
-add :: (Integer, Integer) -> Integer
+> As you can see this function accepts two integers and returns one
+this is not a curried function, nor is it a high order function.
 
--- this function takes one integer, followed by a function that takes an 
+```
+add :: (Integer, Integer) -> Integer
+```
+
+> This function takes one integer, followed by a function that takes an 
 integer, and finall returns an integer, this is an example of currying and 
--- also a high order function
+also a high order function.
+
+```
 add :: Integer -> Integer -> Integer
 ```
 
 > source: [add.hs](add.hs)
-
 
 Currying is often confused with partial-evaluation, however the key difference is with currying you 
 are not infact creating a function accepts less than the required number of arguments, you are actually
