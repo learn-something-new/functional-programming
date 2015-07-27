@@ -8,11 +8,11 @@ In this suite of documents we discuss functional programming: What it looks like
 
 ## Table of Contents
 
-+ [Currying](/currying)
-+ [Partial Evaluation](/partial-eval)
-+ [Object-oriented and Functional programming](/object-oriented)
-+ [Memoization](/memoization)
-+ [Recursion (Coming soon)](#)
++ ** [Currying](/currying) **
++ ** [Partial Evaluation](/partial-eval) **
++ ** [Object-oriented and Functional programming](/object-oriented) **
++ ** [Memoization](/memoization) **
++ ** [Recursion](/recursion) **
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
@@ -47,9 +47,9 @@ Memoization implements a space/time tradeoff: storing the result of each invocat
 
 Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
 
-## Recursion
+## [Recursion](/recursion)
 
-*(Coming soon)*
+See section [recursion](/recursion) for description.
 
 ## Lamba Expressions
 
