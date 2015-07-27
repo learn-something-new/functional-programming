@@ -11,8 +11,8 @@ In this suite of documents we discuss functional programming: What it looks like
 + **[Object-oriented and Functional programming](/object-oriented)**
 + **[Partial Evaluation](/partial-eval)**
 + **[Memoization](/memoization)**
++ **[Recursion](/recursion)**
 + [Currying (Coming soon)](#)
-+ [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
@@ -46,9 +46,9 @@ Memoization is easy to implement for code written in functional style; in many l
 
 *(Coming soon)*
 
-## Recursion
+## [Recursion](/recursion)
 
-*(Coming soon)*
+See section [recursion](/recursion) for description.
 
 ## Lamba Expressions
 
