@@ -6,14 +6,19 @@ In this suite of documents we discuss functional programming: What it looks like
 
 ## Table of Contents
 
++ [Currying](/currying)
 + [Partial Evaluation](/partial-eval)
 + [Object-oriented and Functional programming](/object-oriented)
 + [Memoization (Coming soon)](#)
-+ [Currying (Coming soon)](#)
 + [Recursion (Coming soon)](#)
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
+
+## [Currying](/currying)
+
+Currying is the concept of taking a single function that takes multiple arguments into a chained sequence
+of functions that each take a single function.
 
 ## [Partial Evaluation](/partial-eval)
 
@@ -33,10 +38,6 @@ A basic human language sentence is described by linguists as being made up of a 
 Similarly, programs are generally comprised of structures built out of nouns (variables, constants, fields, properties, structs, records, objects, serial forms, files, etc) and verbs (create, execute, operate, implement, extend, generate, compute, invoke, etc).  Also in keeping with human languages, verbs are nounified (creator, executor, operator, etc) and, occasionally, nouns are verbified (to serialize).
 
 ## Memoization
-
-(Coming soon)
-
-## Currying
 
 (Coming soon)
 
