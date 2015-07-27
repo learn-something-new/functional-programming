@@ -6,6 +6,26 @@ Closures are functions that scope exists within a variable. Any function defined
 in the parent function. Closures are a part of higher-order functions in languages such as Haskell, as well they are used in languages like JavaScript
 for callbacks, allowing the callback to access the variables and scope of the parent function.
 
+```javascript
+// findAverage is a closure which accepts two variables, caculates the average
+// then passes the result to a callback function
+function findAverage(x, y, cb) {
+    // findSum is inside a closure so it already has acccess to x and y
+    // it combines the two variables and returns the result
+    function findSum() {
+        return x + y;
+    }
+
+    var result = fundSum() / 2;
+
+    cb(result);
+}
+
+findAverage(1, 2, function(x) {
+    window.alert(x);
+});
+```
+
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
 
