@@ -8,22 +8,19 @@ In this suite of documents we discuss functional programming: What it looks like
 
 ## Table of Contents
 
-+ **[Object-oriented and Functional programming](/object-oriented)**
-+ **[Partial Evaluation](/partial-eval)**
-+ **[Memoization](/memoization)**
-+ **[Recursion](/recursion)**
-+ [Currying (Coming soon)](#)
++ ** [Currying](/currying) **
++ ** [Partial Evaluation](/partial-eval) **
++ ** [Object-oriented and Functional programming](/object-oriented) **
++ ** [Memoization](/memoization) **
++ ** [Recursion](/recursion) **
 + [Lambda Expressions (Coming soon)](#)
 + [Reactive Programming (Coming soon)](#)
 + [Closures (Coming soon)](#)
 
-## [Object-oriented and Functional programming](/object-oriented)
+## [Currying](/currying)
 
-Often, programmers consider OO and functional programming to be competing metaphors, in competition with one another. I believe that this isn't the case; I think they complement each other; in fact, I believe they can't live without each other.
-
-A basic human language sentence is described by linguists as being made up of a 'noun phrase' and a 'verb phrase'.  A *noun phrase* is one or more words that describe an object, such as a person, place, thing or idea; a *verb phrase* is one or more words that describe an action.  Of course the line between these can be flexible: nouns can often be 'verbified' (to bag, to box, to objectify... to verbify), and verbs are frequently nounified (runner, actor, dancer).
-
-Similarly, programs are generally comprised of structures built out of nouns (variables, constants, fields, properties, structs, records, objects, serial forms, files, etc) and verbs (create, execute, operate, implement, extend, generate, compute, invoke, etc).  Also in keeping with human languages, verbs are nounified (creator, executor, operator, etc) and, occasionally, nouns are verbified (to serialize).
+Currying is the concept of taking a single function that takes multiple arguments into a chained sequence
+of functions that each take a single function.
 
 ## [Partial Evaluation](/partial-eval)
 
@@ -34,6 +31,14 @@ This can be repeatedly done until you have provided all the arguments, and unlik
 non-functional languages, a true functional language will automatically create this function by partially evaluating the function you 
 are calling and determining what parameters are provided.
 
+## [Object-oriented and Functional programming](/object-oriented)
+
+Often, programmers consider OO and functional programming to be competing metaphors, in competition with one another. I believe that this isn't the case; I think they complement each other; in fact, I believe they can't live without each other.
+
+A basic human language sentence is described by linguists as being made up of a 'noun phrase' and a 'verb phrase'.  A *noun phrase* is one or more words that describe an object, such as a person, place, thing or idea; a *verb phrase* is one or more words that describe an action.  Of course the line between these can be flexible: nouns can often be 'verbified' (to bag, to box, to objectify... to verbify), and verbs are frequently nounified (runner, actor, dancer).
+
+Similarly, programs are generally comprised of structures built out of nouns (variables, constants, fields, properties, structs, records, objects, serial forms, files, etc) and verbs (create, execute, operate, implement, extend, generate, compute, invoke, etc).  Also in keeping with human languages, verbs are nounified (creator, executor, operator, etc) and, occasionally, nouns are verbified (to serialize).
+
 ## [Memoization](/memoization)
 
 Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.  Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.
@@ -41,10 +46,6 @@ Given an operation whose arguments completely determine its output, repeated cal
 Memoization implements a space/time tradeoff: storing the result of each invocation takes up memory (`[number of distinct calls] x [size of output type]`), but eliminates the cost of repeated calls almost entirely (and increasing the cost of non-repeated calls slightly).  The traditional memoizer monitors all arguments and stores all results, but small variations can allow for heuristics like most-recently-used to 'split the difference'.
 
 Memoization is easy to implement for code written in functional style; in many languages it can be implemented as a completely generic 'adapter' that can be applied to any function call site.
-
-## Currying
-
-*(Coming soon)*
 
 ## [Recursion](/recursion)
 
