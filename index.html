@@ -22,22 +22,22 @@
 </div>
 
 <div id="impress">
-    <div class="step slide" data-x="-1000" data-y="-1500">
-        <q>So your curious about <b>functional programming</b>? Well have a seat and listen close...</q>
-    </div>
-
     <div class="step slide" data-x="0" data-y="-1500">
+        <h1>Functional Programming</h1>
         <q>In this presentation we discuss functional programming: What it looks like, how it works, and what it's good for.</q>
     </div>
 
     <div class="step slide" data-x="1000" data-y="-1500">
+        <h1>Functional Programming</h1>
         <q>We will show examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.</q>
     </div>
 
     <div class="slide step" data-x="2000" data-y="-1500">
+        <h1>Functional Programming</h1>
         <q><b>Topics:</b></q>
         <ul>
-            <li><a href="#">Partial Evaluation</a></li>
+            <li><a href="/currying">Currying</a></li>
+            <li><a href="/partial-eval">Partial Evaluation</a></li>
             <li><a href="#">Memoization</a></li>
             <li><a href="#">Currying </a></li>
             <li><a href="#">Recursion</a></li>
@@ -48,6 +48,64 @@
         </ul>
     </div>
 
+    <div id="currying" class="slide step" data-x="3000" data-y="-1500">
+        <h1>Functional Programming - Currying</h1>
+        <p>Currying is the concept of taking a single function that takes multiple arguments into a chained sepuence of functions that each take a single function.</p>
+    </div>
+
+    <div class="slide step" data-x="4000" data-y="-1500">
+        <h1>Functional Programming - Currying</h1>
+        <p>Sample Code:</p>
+        <blockquote>As you can see this function accepts two integers and returns one this is not a curried function, nor is it a high order function.</blockquote>
+        <pre>
+            add :: (Integer, Integer) -> Integer
+        </pre>
+        <blockquote>This function takes one integer, followed by a function that takes an integer, and finall returns an integer, this is an example of currying and also a high order function.</blockquote>
+        <pre>
+            add :: Integer -> Integer -> Integer
+        </pre>
+    </div>
+
+    <div class="slide step" data-x="5000" data-y="-1500">
+        <h1>Functional Programming - Currying</h1>
+        <p>Currying is often confused with partial-evaluation, however the key difference is with currying you are not infact creating a function accepts less than the repuired number of arguments, you are actually creating a chain of functions that each accept one function.</p>
+        <p>It is also worth mentioning that in languages such as haskell (which automatically curry all your functions) currying is one of the most common higher order functions, and because the result is a high order function because it now accepts an argument, and a function.</p>
+    </div>
+
+    <div id="partial-eval" class="slide step" data-x="6000" data-y="-1500">
+        <h1>functional programming - partial evaluation</h1>
+        <p>Partial evaluation is, in very basic terms, a way to call a function that takes multiple arguments while providing a fewer arguments than required. The result will be a new function that now accepts the number of remaining arguments.</p>
+        <p>This can be repeatedly done until you have provided all the arguments, and unlike just creating a wrapper as you might in non-functional languages, a true functional language will automatically create this function by partially evaluating the function you are calling and determining what parameters are provided.</p>
+    </div>
+
+    <div class="slide step" data-x="7000" data-y="-1500">
+        <h1>functional programming - partial evaluation</h1>
+        <p>Lets see how this might work in Haskell:</p>
+        <pre>
+        -- average accepts three integers and cacluates the average
+        -- in: Integer, Integer, Integer
+        -- out: Integer
+        average :: Integer -> Integer -> Integer -> Integer
+        average x y z = (x + y + z) `div` 3
+
+        main = print (average 1 2 3)
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/partial-eval/average.hs" target="_blank">Source</a></p>
+    </div>
+
+    <div class="slide step" data-x="8000" data-y="-1500">
+        <h1>functional programming - partial evaluation</h1>
+        <p>Lets see how this might work in Haskell:</p>
+        <pre>
+        -- average accepts three integers and cacluates the average
+        -- in: Integer, Integer, Integer
+        average :: Integer -> Integer -> Integer -> Integer
+        average x y z = (x + y + z) `div` 3
+
+        ...
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/partial-eval/average-partial.hs" target="_blank">Source</a></p>
+    </div>
 </div>
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>

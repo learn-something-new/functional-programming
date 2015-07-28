@@ -115,7 +115,7 @@ body     { pointer-events: none; }
 
     font-family: 'PT Serif', georgia, serif;
 
-    font-size: 48px;
+    font-size: 38px;
     line-height: 1.5;
 }
 
@@ -450,12 +450,22 @@ body     { pointer-events: none; }
     letter-spacing: -1px;
 }
 
+.slide pre {
+    margin: 25px 0px;
+    background: #DDD;
+    font-size: 20px;
+}
+
+.slide p {
+    margin: 50px 0px;
+}
+
 .slide q {
     display: block;
     font-size: 50px;
     line-height: 72px;
 
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .slide q strong {
