@@ -55,13 +55,15 @@
     </div>
 
     <div id="partial-eval" class="slide step" data-x="4000" data-y="-1500">
-        <h1>functional programming - partial evaluation</h1>
-        <p>Partial evaluation is, in very basic terms, a way to call a function that takes multiple arguments while providing a fewer arguments than required. The result will be a new function that now accepts the number of remaining arguments.</p>
-        <p>This can be repeatedly done until you have provided all the arguments, and unlike just creating a wrapper as you might in non-functional languages, a true functional language will automatically create this function by partially evaluating the function you are calling and determining what parameters are provided.</p>
+        <h1>functional programming - partial application</h1>
+        <p>A way to call a function that takes multiple arguments while providing a fewer arguments than required</p>
+        <p>Yields a new function that accepts the remaining arguments.</p>
+        <p>Regular partial application done by most languages simply binds the given arguments using closures (we'll explain later)</p>
+        <p>True 'partial evaluation' will actually invoke parts of this function</p>
     </div>
 
     <div class="slide step" data-x="5000" data-y="-1500">
-        <h1>functional programming - partial evaluation</h1>
+        <h1>functional programming - partial application</h1>
         <p>This is a basic function that accepts 3 parameters and returns the average. This is a partial application.</p>
         <pre>
         average x y z = (x + y + z) `div` 3
@@ -70,8 +72,8 @@
     </div>
 
     <div class="slide step" data-x="6000" data-y="-1500">
-        <h1>functional programming - partial evaluation</h1>
-        <p>Here we are partially evaluating the function we created earlier.</p>
+        <h1>functional programming - partial application</h1>
+        <p>Here we are partially applying the function we created earlier.</p>
         <pre>
         average x y z = (x + y + z) `div` 3
 
@@ -135,7 +137,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/memoization/memo.hs" target="_blank">Source</a></p>
     </div>
 
-    <div id="lambda" class="slide step" data-x="9000" data-y="-1500">
+    <div id="lambda" class="slide step" data-x="10000" data-y="-1500">
         <h1>functional programming - lambda expressions</h1>
         <p>Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions.</p>
         <p>Something we have done many times in javascript is a perfect example, callbacks:</p>
@@ -152,7 +154,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.js" target="_blank">Source</a></p>
     </div>
 
-    <div class="slide step" data-x="10000" data-y="-1500">
+    <div class="slide step" data-x="11000" data-y="-1500">
         <h1>functional programming - lambda expressions</h1>
         <p>Again in a functional language, with no side-effects we demonstrate a very similar piece of code:</p>
         <pre>
@@ -165,7 +167,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.hs" target="_blank">Source</a></p>
     </div>
 
-    <div id="recursion" class="slide step" data-x="11000" data-y="-1500">
+    <div id="recursion" class="slide step" data-x="12000" data-y="-1500">
         <h1>functional programming - recursion</h1>
         <p>Recursion is not a concept unique to functional programming, however the important note is that in functional programming their are no loops.</p>
         <pre>
@@ -176,7 +178,49 @@
                 x
         </pre>
     </div>
+
+    <div id='oop-dovetail' class="slide step" data-x="13000" data-y="-1500">
+        <h1>OOP Dovetailing</h1>
+        <ul>
+            <li>each/filter/transform/map/reduce: using data structures in functional fashion<li>
+            <li>Lambda expressions (function object, if language not supported) enable 'call by continuation'</li>
+            <li>First class functions let you pass existing functions as callbacks/continuations</li>
+            <li>Promises (futures) are an elegant OO construct for functional continuations</li>
+            <li>Anonymous objects are a lot like closures</li>
+            <li>Currying allows you to eliminate wrapper functions -- simpler, cleaner</li>
+            <li>For code written in functional style, memoization is a practically free hot path optimization</li>
+        </ul>
+    </div>
+
+    <div class="slide step" data-x="14000" data-y="-1500">
+        <h1>List processing</h1>
+        <pre>
+            String salutation = // pure functional expression
+                customers.filter((Customer c) -> { c.lastName == "Smith"; }) // lambda
+                    .transform((Customer c) -> { return capitalize(c.firstName); }) // map/reduce paradigm
+                    .reduce("", (String name, String rest) -> { rest.append(" ").append(name); })
+        </pre>
+    </div>
+
+    <div class="slide step" data-x="15000" data-y="-1500">
+        <h1>Promises</h1>
+        <pre>
+            Promise<String> promise = executor.submit({ /* do something expensive */ });
+            promise.andThen(println); // now output the result (first class function; not pure functional!)
+        </pre>
+    </div>
+
+    <div class="slide step" data-x="16000" data-y="-1500">
+        <h1>Functional on the Architecture Level: Bottom-up Design</h1>
+        <ul>
+            <li>Opposing approach to feature- or system-driven design</li>
+            <li>Understand the problem domain as clearly as possible, from a technical standpoint</li>
+            <li>Define a domain-specific language (DSL) which simplifies that component's implementation</li>
+            <li>Repeat, extending DSL horizontally and/or vertically</li>
+        </ul>
+    </div>
 </div>
+
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>
 </div>
