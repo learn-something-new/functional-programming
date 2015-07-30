@@ -28,8 +28,8 @@
         <ul>
             <li><a href="#/currying">Currying</a></li>
             <li><a href="#/partial-eval">Partial Evaluation</a></li>
-            <li><a href="#">Memoization</a></li>
-            <li><a href="#">Closures (coming soon)</a></li>
+            <li><a href="#/memoization">Memoization</a></li>
+            <li><a href="#/closures">Closures</a></li>
             <li><a href="#/lambda">Lambda Expressions</a></li>
             <li><a href="#/recursion">Recursion</a></li>
             <li><a href="#">Reactive Programming (coming soon)</a></li>
@@ -86,13 +86,29 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/partial-eval/average-partial.hs" target="_blank">Source</a></p>
     </div>
 
-    <div class="slide step" data-x="7000" data-y="-1500">
+    <div id="memoization" class="slide step" data-x="7000" data-y="-1500">
         <h1>functional programming - memoization</h1>
         <p>Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.</p>
         <p>Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.</p>
     </div>
 
-    <div class="slide step" data-x="8000" data-y="-1500">
+    <div id="closures" class="slide step" data-x="8000" data-y="-1500">
+        <h1>functional programming - closures</h1>
+        <p>The concept of closure is the concept of letting a function have access to things that are scoped around it, and tying the lifetime of those things to the lifetime of the function.</p>
+        <pre>
+        function findAverage(x, y, cb) {
+            function findSum() {
+                return x + y;
+            }
+
+            var result = fundSum() / 2;
+
+            cb(result);
+        }
+        </pre>
+    </div>
+
+    <div class="slide step" data-x="9000" data-y="-1500">
         <h1>functional programming - memoization</h1>
         <p>Here is a very basic example of memoization in Python that wraps a function in a object to memoize it.</p>
         <pre>
@@ -112,7 +128,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/memoization/memo.py" target="_blank">Source</a></p>
     </div>
 
-    <div class="slide step" data-x="9000" data-y="-1500">
+    <div class="slide step" data-x="10000" data-y="-1500">
         <h1>functional programming - memoization</h1>
         <p>Here is a proper example in Haskell</p>
         <pre>
@@ -137,7 +153,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/memoization/memo.hs" target="_blank">Source</a></p>
     </div>
 
-    <div id="lambda" class="slide step" data-x="10000" data-y="-1500">
+    <div id="lambda" class="slide step" data-x="11000" data-y="-1500">
         <h1>functional programming - lambda expressions</h1>
         <p>Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions.</p>
         <p>Something we have done many times in javascript is a perfect example, callbacks:</p>
@@ -154,7 +170,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.js" target="_blank">Source</a></p>
     </div>
 
-    <div class="slide step" data-x="11000" data-y="-1500">
+    <div class="slide step" data-x="12000" data-y="-1500">
         <h1>functional programming - lambda expressions</h1>
         <p>Again in a functional language, with no side-effects we demonstrate a very similar piece of code:</p>
         <pre>
@@ -167,7 +183,7 @@
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.hs" target="_blank">Source</a></p>
     </div>
 
-    <div id="recursion" class="slide step" data-x="12000" data-y="-1500">
+    <div id="recursion" class="slide step" data-x="13000" data-y="-1500">
         <h1>functional programming - recursion</h1>
         <p>Recursion is not a concept unique to functional programming, however the important note is that in functional programming their are no loops.</p>
         <pre>
@@ -179,7 +195,7 @@
         </pre>
     </div>
 
-    <div id='oop-dovetail' class="slide step" data-x="13000" data-y="-1500">
+    <div id='oop-dovetail' class="slide step" data-x="14000" data-y="-1500">
         <h1>OOP Dovetailing</h1>
         <ul>
             <li>each/filter/transform/map/reduce: using data structures in functional fashion<li>
@@ -192,7 +208,7 @@
         </ul>
     </div>
 
-    <div class="slide step" data-x="14000" data-y="-1500">
+    <div class="slide step" data-x="15000" data-y="-1500">
         <h1>List processing</h1>
         <pre>
             String salutation = // pure functional expression
@@ -202,7 +218,7 @@
         </pre>
     </div>
 
-    <div class="slide step" data-x="15000" data-y="-1500">
+    <div class="slide step" data-x="16000" data-y="-1500">
         <h1>Promises</h1>
         <pre>
             Promise<String> promise = executor.submit({ /* do something expensive */ });
@@ -210,7 +226,7 @@
         </pre>
     </div>
 
-    <div class="slide step" data-x="16000" data-y="-1500">
+    <div class="slide step" data-x="17000" data-y="-1500">
         <h1>Functional on the Architecture Level: Bottom-up Design</h1>
         <ul>
             <li>Opposing approach to feature- or system-driven design</li>
