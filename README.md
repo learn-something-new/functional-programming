@@ -62,11 +62,7 @@ Lambda expressions are functions not bound to an identifier, a common example of
 
 ## [Closures](/closures)
 
-Closures are functions that scope exists within a variable. Any function defined within a closure has access to the scope and variables created
-in the parent function. 
-
-Closures are a part of higher-order functions in languages such as Haskell, as well they are used in languages like JavaScript
-for callbacks, allowing the callback to access the variables and scope of the parent function.
+The concept of closure is the concept of letting a function have access to things that are scoped around it, and tying the lifetime of those things to the lifetime of the function. 
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
