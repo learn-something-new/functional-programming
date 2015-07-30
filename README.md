@@ -54,8 +54,7 @@ See section [recursion](/recursion) for description.
 ## [Lambda Expressions](/lambda)
 
 Lambda expressions, or anonymous functions, are not a concept unique to functional programming. However, functional programming uses lambda expressions in concepts.
-Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions. In functional programming these are used
-in techniques such as currying, and high-order functions.
+Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions. 
 
 ## Reactive Programming
 
