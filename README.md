@@ -15,7 +15,7 @@ In this suite of documents we discuss functional programming: What it looks like
 + **[Recursion](/recursion )**
 + **[Lambda Expressions](/lambda)**
 + [Reactive Programming (Coming soon)](#)
-+ [Closures (Coming soon)](#)
++ **[Closures](/closures)**
 
 ## [Currying](/currying)
 
@@ -60,9 +60,9 @@ Lambda expressions are functions not bound to an identifier, a common example of
 
 *(Coming soon)*
 
-## Closures
+## [Closures](/closures)
 
-*(Coming soon)*
+The concept of closure is the concept of letting a function have access to things that are scoped around it, and tying the lifetime of those things to the lifetime of the function. 
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
