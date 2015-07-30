@@ -22,82 +22,159 @@
 </div>
 
 <div id="impress">
-    <div class="step slide" data-x="0" data-y="-1500">
-        <h1>Functional Programming</h1>
-        <q>In this presentation we discuss functional programming: What it looks like, how it works, and what it's good for.</q>
-    </div>
-
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <h1>Functional Programming</h1>
-        <q>We will show examples of functional programming in conventional languages, and (most importantly) how functional programming can complement object-oriented programming.</q>
-    </div>
-
-    <div class="slide step" data-x="2000" data-y="-1500">
+    <div class="slide step" data-x="1000" data-y="-1500">
         <h1>Functional Programming</h1>
         <q><b>Topics:</b></q>
         <ul>
             <li><a href="#/currying">Currying</a></li>
             <li><a href="#/partial-eval">Partial Evaluation</a></li>
             <li><a href="#">Memoization</a></li>
-            <li><a href="#">Closures</a></li>
-            <li><a href="#">Lambda Expressions</a></li>
-            <li><a href="#">Recursion</a></li>
-            <li><a href="#">Reactive Programming</a></li>
+            <li><a href="#">Closures (coming soon)</a></li>
+            <li><a href="#/lambda">Lambda Expressions</a></li>
+            <li><a href="#/recursion">Recursion</a></li>
+            <li><a href="#">Reactive Programming (coming soon)</a></li>
         </ul>
     </div>
 
-    <div class="slide step" data-x="4000" data-y="-1500">
+    <div id="currying" class="slide step" data-x="2000" data-y="-1500">
         <h1>Functional Programming - Currying</h1>
         <p>Sample Code:</p>
-        <blockquote>As you can see this function accepts two integers and returns one this is not a curried function, nor is it a high order function.</blockquote>
+        <blockquote>As you can see this function accepts two integers and returns one this is not a curried function.</blockquote>
         <pre>
             add :: (Integer, Integer) -> Integer
         </pre>
-        <blockquote>This function takes one integer, followed by a function that takes an integer, and finall returns an integer, this is an example of currying and also a high order function.</blockquote>
+        <blockquote>This function takes one integer, followed by a function that takes an integer, and finall returns an integer, this is an example of currying.</blockquote>
         <pre>
             add :: Integer -> Integer -> Integer
         </pre>
     </div>
 
-    <div class="slide step" data-x="5000" data-y="-1500">
+    <div class="slide step" data-x="3000" data-y="-1500">
         <h1>Functional Programming - Currying</h1>
         <p>Currying is often confused with partial-evaluation, however the key difference is with currying you are not infact creating a function accepts less than the repuired number of arguments, you are actually creating a chain of functions that each accept one function.</p>
-        <p>It is also worth mentioning that in languages such as haskell (which automatically curry all your functions) currying is one of the most common higher order functions, and because the result is a high order function because it now accepts an argument, and a function.</p>
     </div>
 
-    <div id="partial-eval" class="slide step" data-x="6000" data-y="-1500">
+    <div id="partial-eval" class="slide step" data-x="4000" data-y="-1500">
         <h1>functional programming - partial evaluation</h1>
         <p>Partial evaluation is, in very basic terms, a way to call a function that takes multiple arguments while providing a fewer arguments than required. The result will be a new function that now accepts the number of remaining arguments.</p>
         <p>This can be repeatedly done until you have provided all the arguments, and unlike just creating a wrapper as you might in non-functional languages, a true functional language will automatically create this function by partially evaluating the function you are calling and determining what parameters are provided.</p>
     </div>
 
-    <div class="slide step" data-x="7000" data-y="-1500">
+    <div class="slide step" data-x="5000" data-y="-1500">
         <h1>functional programming - partial evaluation</h1>
-        <p>Lets see how this might work in Haskell:</p>
+        <p>This is a basic function that accepts 3 parameters and returns the average. This is a partial application.</p>
         <pre>
-        -- average accepts three integers and cacluates the average
-        -- in: Integer, Integer, Integer
-        -- out: Integer
-        average :: Integer -> Integer -> Integer -> Integer
         average x y z = (x + y + z) `div` 3
-
-        main = print (average 1 2 3)
         </pre>
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/partial-eval/average.hs" target="_blank">Source</a></p>
     </div>
 
-    <div class="slide step" data-x="8000" data-y="-1500">
+    <div class="slide step" data-x="6000" data-y="-1500">
         <h1>functional programming - partial evaluation</h1>
-        <p>Lets see how this might work in Haskell:</p>
+        <p>Here we are partially evaluating the function we created earlier.</p>
         <pre>
-        -- average accepts three integers and cacluates the average
-        -- in: Integer, Integer, Integer
-        average :: Integer -> Integer -> Integer -> Integer
         average x y z = (x + y + z) `div` 3
 
-        ...
+        first = average 1
+
+        second = first 2
+
+        third = second 3
         </pre>
         <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/partial-eval/average-partial.hs" target="_blank">Source</a></p>
+    </div>
+
+    <div class="slide step" data-x="7000" data-y="-1500">
+        <h1>functional programming - memoization</h1>
+        <p>Given an operation whose arguments completely determine its output, repeated calls to that operation with the same arguments will always produce the same output.</p>
+        <p>Memoization is a programming technique that takes advantage of this by recording the result of each invocation of an operation against the given arguments, and, when given the same arguments again, returns the stored result instead of invoking the operation again.</p>
+    </div>
+
+    <div class="slide step" data-x="8000" data-y="-1500">
+        <h1>functional programming - memoization</h1>
+        <p>Here is a very basic example of memoization in Python that wraps a function in a object to memoize it.</p>
+        <pre>
+        def memoize(f):
+            memo = {}
+            def delegate(*args):
+                if not args in memo:
+                    memo[args] = f(*args)
+                return memo[args]
+            return delegate
+
+        def buildURI(a, b, c, d):
+            return a + "://" + b + ":" + `c` + "/" + d
+
+        buildURI = memoize(buildURI)
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/memoization/memo.py" target="_blank">Source</a></p>
+    </div>
+
+    <div class="slide step" data-x="9000" data-y="-1500">
+        <h1>functional programming - memoization</h1>
+        <p>Here is a proper example in Haskell</p>
+        <pre>
+        times a  b = a * b
+
+        timesM f' x y = do
+            return $ times x y
+
+        type StateMap a b = State (Map a b) b
+
+        memoizeM t x y = evalState (f x y) Map.empty where
+            g x y = do
+                y <- t f x y
+                m <- get
+                put $ Map.insert x y m
+                newM <- get
+                return y
+            f x y = get >>= \m -> maybe (g x y) return (Map.lookup x m)
+
+        val x y = memoizeM timesM x y
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/memoization/memo.hs" target="_blank">Source</a></p>
+    </div>
+
+    <div id="lambda" class="slide step" data-x="9000" data-y="-1500">
+        <h1>functional programming - lambda expressions</h1>
+        <p>Lambda expressions are functions not bound to an identifier, a common example of this is in-line functions.</p>
+        <p>Something we have done many times in javascript is a perfect example, callbacks:</p>
+        <pre>
+        function findSum(x, y, cb) {
+            var result = x + y;
+            cb(result);
+        }
+
+        findSum(1, 2, function(x) {
+            window.alert(x);
+        });
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.js" target="_blank">Source</a></p>
+    </div>
+
+    <div class="slide step" data-x="10000" data-y="-1500">
+        <h1>functional programming - lambda expressions</h1>
+        <p>Again in a functional language, with no side-effects we demonstrate a very similar piece of code:</p>
+        <pre>
+        findSum :: Integer -> Integer -> (Integer -> Integer) -> Integer
+        findSum x y f = (f(x+y)) 
+
+        main = 
+            print(findSum 2 3 (\x -> x * 2))
+        </pre>
+        <p><a href="https://github.com/learn-something-new/functional-programming/blob/master/lambda/lambda.hs" target="_blank">Source</a></p>
+    </div>
+
+    <div id="recursion" class="slide step" data-x="11000" data-y="-1500">
+        <h1>functional programming - recursion</h1>
+        <p>Recursion is not a concept unique to functional programming, however the important note is that in functional programming their are no loops.</p>
+        <pre>
+        countToTen x =
+            if x < 10 then
+                countToTen(x + 1)
+            else
+                x
+        </pre>
     </div>
 </div>
 <div class="hint">

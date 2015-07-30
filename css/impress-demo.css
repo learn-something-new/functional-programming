@@ -453,7 +453,8 @@ body     { pointer-events: none; }
 .slide pre {
     margin: 25px 0px;
     background: #DDD;
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 .slide p {
