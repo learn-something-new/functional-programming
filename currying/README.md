@@ -21,7 +21,7 @@ Currying is often confused with partial-evaluation, however the key difference i
 are not infact creating a function accepts less than the required number of arguments, you are actually
 creating a chain of functions that each accept one function.
 
-*Note: Currying is the process of creating a function that can be partially applied. We will discuss partial application
+*Note: Currying is the process of creating a function that can be partially evaluated, this is called partial application. We will discuss partial application
 and partial evaluation in the [partial evaluation](/partial-eval) section.*
 
 ##License

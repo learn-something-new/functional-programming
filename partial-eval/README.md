@@ -9,6 +9,9 @@ This can be repeatedly done until you have provided all the arguments, and unlik
 non-functional languages, a true functional language will automatically create this function by partially evaluating the function you 
 are calling and determining what parameters are provided.
 
+*Note: Partial evaluation is the execution of partial application. When you curry a function, you are using partial application to 
+break it into a chain of several functions that each accept one variable. By calling the first function in the chain (the one you defined)
+and passing it less than the expected number of variables you are now partially evaluating the function.
 
 ## True Partial Evaluation
 
